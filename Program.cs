@@ -187,15 +187,23 @@ namespace Practice_Linq
         static void Query7(List<FootballGame> games)
         {
             //Query 7: Вивести перший матч у 2023 році, в якому збірна України виграла.
+            var selectedGames = games.Where(x => x.Date.Year == 2023); // допиши запит
+            selectedGames = selectedGames.Where(x => (x.Home_team == "Ukraine" && x.Home_score > x.Away_score) || (x.Away_team == "Ukraine" && x.Away_score > x.Home_score));
+            selectedGames = selectedGames.OrderBy(x => x.Date.Year);
 
-            FootballGame? g = null; // допиши запит
+            FootballGame? item = selectedGames.FirstOrDefault(); // допиши запит
 
 
             // Результат
             Console.WriteLine("\n======================== QUERY 7 ========================");
-
             
-        }
+                string res = $"{item.Date:dd.MM.yyyy} ";
+                res += $"{item.Home_team} - {item.Away_team}, ";
+                res += $"Score: {item.Home_score} - {item.Away_score}, ";
+                res += $"Country: {item.Country}";
+                Console.WriteLine(res);
+            }
+
 
         // Запит 8
         static void Query8(List<FootballGame> games)
