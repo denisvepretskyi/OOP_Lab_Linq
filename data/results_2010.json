@@ -111321,9 +111321,9 @@
  },
  {
   "date": "2021-03-24",
-  "home_team": "France",
+  "home_team": "France",  "home_score": 1,
+
   "away_team": "Ukraine",
-  "home_score": 1,
   "away_score": 1,
   "tournament": "FIFA World Cup qualification",
   "city": "Paris",
