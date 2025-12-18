@@ -286,14 +286,20 @@ namespace Practice_Linq
         {
             //Query 11: Вивести 10 країн (без повторів) з сортуваннях від A до Z, в яких проводилися матчі у 2020 році.    
 
-            var selectedGames = games; // допиши запит
-
+            var selectedGames = games.Where(x => x.Date.Year == 2020);
+            selectedGames = selectedGames.OrderBy(x => x.Country); // допиши запит
+            selectedGames = selectedGames.DistinctBy(x => x.Country);
+            selectedGames = selectedGames.Take(10);
 
             // Результат
             Console.WriteLine("\n======================== QUERY 11 ========================");
 
             //foreach
-
+            foreach (var item in selectedGames)
+            {                
+                string res = $"{item.Country}";
+                Console.WriteLine(res);
+            }
         }
 
         // Запит 12
